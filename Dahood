@@ -1,0 +1,1149 @@
+local player = game.Players.LocalPlayer
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "AippyGeneratedGui"
+screenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+screenGui.Parent = player:WaitForChild("PlayerGui")
+
+-- Mobile Optimization: Add UIScale for better scaling across devices
+local uiScale = Instance.new("UIScale")
+uiScale.Parent = screenGui
+
+-- Main Container for cohesive dragging
+local mainContainer = Instance.new("Frame")
+mainContainer.Name = "MainContainer"
+mainContainer.Size = UDim2.new(1, 0, 1, 0)
+mainContainer.Position = UDim2.new(0, 0, 0, 0)
+mainContainer.BackgroundTransparency = 1
+mainContainer.Parent = screenGui
+
+-- Minimize Icon
+local minimizeIcon = Instance.new("TextButton")
+minimizeIcon.Name = "MinimizeIcon"
+minimizeIcon.Size = UDim2.fromScale(0.1, 0.15)
+minimizeIcon.Position = UDim2.fromScale(0.85, 0.31)
+minimizeIcon.BackgroundColor3 = Color3.fromHex("#000000")
+minimizeIcon.Visible = false
+minimizeIcon.Parent = screenGui
+
+local uiCornerIcon = Instance.new("UICorner")
+uiCornerIcon.CornerRadius = UDim.new(0, 8)
+uiCornerIcon.Parent = minimizeIcon
+
+minimizeIcon.Text = "DH"
+minimizeIcon.TextColor3 = Color3.fromHex("#c50000")
+minimizeIcon.TextScaled = true
+
+minimizeIcon.MouseButton1Click:Connect(function()
+    mainContainer.Visible = true
+    minimizeIcon.Visible = false
+end)
+
+-- Frame212640
+local Frame212640 = Instance.new("Frame")
+Frame212640.Name = ""
+Frame212640.Size = UDim2.fromScale(0.28, 0.65)
+Frame212640.Position = UDim2.fromScale(0.36, 0.2)
+
+-- Gradient Background Frame for 
+local Frame212640GradientBg = Instance.new("Frame")
+Frame212640GradientBg.Name = "GradientBackground"
+Frame212640GradientBg.Size = UDim2.fromScale(1, 1)
+Frame212640GradientBg.Position = UDim2.fromScale(0, 0)
+Frame212640GradientBg.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame212640GradientBg.BorderSizePixel = 0
+Frame212640GradientBg.ZIndex = Frame212640.ZIndex - 1
+Frame212640GradientBg.Parent = Frame212640
+
+Frame212640.BackgroundTransparency = 1
+Frame212640.BorderSizePixel = 1
+Frame212640.Parent = mainContainer
+
+local Frame212640Corner = Instance.new("UICorner")
+Frame212640Corner.CornerRadius = UDim.new(0, 6)
+Frame212640Corner.Parent = Frame212640
+
+local Frame212640GradientBgCorner = Instance.new("UICorner")
+Frame212640GradientBgCorner.CornerRadius = UDim.new(0, 6)
+Frame212640GradientBgCorner.Parent = Frame212640GradientBg
+
+-- Apply Gradient to Background Frame
+local Frame212640Gradient = Instance.new("UIGradient")
+Frame212640Gradient.Color = ColorSequence.new{
+    ColorSequenceKeypoint.new(0, Color3.fromHex("#FF0000")),
+    ColorSequenceKeypoint.new(1, Color3.fromHex("#000000"))
+}
+Frame212640Gradient.Rotation = 0
+Frame212640Gradient.Parent = Frame212640GradientBg
+
+-- Frame2
+local Frame2 = Instance.new("Frame")
+Frame2.Name = "Frame2"
+Frame2.Size = UDim2.fromScale(0.25, 0.57)
+Frame2.Position = UDim2.fromScale(0.3755, 0.24)
+Frame2.BackgroundColor3 = Color3.fromHex("#000000")
+Frame2.BackgroundTransparency = 0
+Frame2.BorderSizePixel = 1
+Frame2.Parent = mainContainer
+
+-- macro
+local macro = Instance.new("TextBox")
+macro.Name = "macro"
+macro.Size = UDim2.fromScale(0.2, 0.09)
+macro.Position = UDim2.fromScale(0.4, 0.257)
+macro.BackgroundColor3 = Color3.fromHex("#000000")
+macro.BackgroundTransparency = 0
+macro.BorderSizePixel = 0
+macro.Parent = mainContainer
+
+macro.Text = "enable macro"
+macro.TextColor3 = Color3.fromHex("#d60001")
+macro.TextSize = 13
+macro.TextScaled = true -- Mobile Optimization
+macro.Font = Enum.Font.Highway
+macro.ClearTextOnFocus = false
+macro.PlaceholderText = "enable macro"
+-- Toggle4 (Toggle)
+local Toggle4 = Instance.new("TextButton")
+Toggle4.Name = "Toggle4"
+Toggle4.Size = UDim2.fromScale(0.24, 0.16)
+Toggle4.Position = UDim2.fromScale(0.375, 0.3395)
+Toggle4.BackgroundTransparency = 1
+Toggle4.BorderSizePixel = 0
+Toggle4.Text = ""
+Toggle4.AutoButtonColor = false
+Toggle4.Parent = mainContainer
+
+-- Switch background
+local Toggle4Switch = Instance.new("Frame")
+Toggle4Switch.Name = "SwitchBg"
+Toggle4Switch.Size = UDim2.fromScale(0.8, 0.6)
+Toggle4Switch.Position = UDim2.fromScale(0.1, 0.2)
+Toggle4Switch.BackgroundColor3 = Color3.fromHex("#e80400")
+Toggle4Switch.BorderSizePixel = 0
+Toggle4Switch.Parent = Toggle4
+
+local Toggle4SwitchCorner = Instance.new("UICorner")
+Toggle4SwitchCorner.CornerRadius = UDim.new(1, 0)
+Toggle4SwitchCorner.Parent = Toggle4Switch
+
+-- Switch knob
+local Toggle4Knob = Instance.new("Frame")
+Toggle4Knob.Name = "Knob"
+Toggle4Knob.Size = UDim2.fromScale(0.4, 1)
+Toggle4Knob.Position = UDim2.fromScale(0.05, 0)
+Toggle4Knob.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Toggle4Knob.BorderSizePixel = 0
+Toggle4Knob.Parent = Toggle4Switch
+
+local Toggle4KnobCorner = Instance.new("UICorner")
+Toggle4KnobCorner.CornerRadius = UDim.new(1, 0)
+Toggle4KnobCorner.Parent = Toggle4Knob
+
+-- Toggle state and logic
+local Toggle4State = false
+
+Toggle4.MouseButton1Click:Connect(function()
+    Toggle4State = not Toggle4State
+
+    if Toggle4State then
+        Toggle4Switch.BackgroundColor3 = Color3.fromHex("#10B981")
+        Toggle4Knob.Position = UDim2.fromScale(0.55, 0)
+        -- LocalScript - Macro Speed Boost Script (Separated)
+        -- Place in executor
+        local Players = game:GetService("Players")
+        local RunService = game:GetService("RunService")
+        local UserInputService = game:GetService("UserInputService")
+        local player = Players.LocalPlayer
+        local playerGui = player:WaitForChild("PlayerGui")
+        -- Check if GUI already exists (toggle on/off)
+        local existingGui = playerGui:FindFirstChild("MacroGui")
+        if existingGui then
+           existingGui:Destroy()
+           print("Macro Script disabled!")
+           return
+        end
+        -- Create ScreenGui
+        local screenGui = Instance.new("ScreenGui")
+        screenGui.Name = "MacroGui"
+        screenGui.ResetOnSpawn = false
+        screenGui.Parent = playerGui
+        -- Create Macro Button
+        local macroButton = Instance.new("TextButton")
+        macroButton.Name = "MacroButton"
+        macroButton.Size = UDim2.new(0, 100, 0, 35)
+        macroButton.Position = UDim2.new(1, -120, 0, 78)
+        macroButton.BackgroundColor3 = Color3.fromRGB(45, 45, 55)
+        macroButton.Text = "⚡ MACRO"
+        macroButton.TextColor3 = Color3.fromRGB(200, 200, 200)
+        macroButton.TextSize = 12
+        macroButton.Font = Enum.Font.Gotham
+        macroButton.Active = true
+        macroButton.Parent = screenGui
+        local macroCorner = Instance.new("UICorner")
+        macroCorner.CornerRadius = UDim.new(0, 6)
+        macroCorner.Parent = macroButton
+        local macroStroke = Instance.new("UIStroke")
+        macroStroke.Color = Color3.fromRGB(100, 100, 110)
+        macroStroke.Thickness = 1
+        macroStroke.Parent = macroButton
+        -- Macro Variables
+        local macroEnabled = false
+        local macroConnection = nil
+        local speedBoost = 150
+        local da_hood_rblxm_REAL = getrawmetatable(game)
+        local CP = da_hood_rblxm_REAL.__newindex
+        local CP_DE_DRIZZY = da_hood_rblxm_REAL.__index
+        local lista_de_victimas_de_drizzy = getrenv()._G
+        -- Setup metatable hook for Da Hood speed bypass
+        setreadonly(da_hood_rblxm_REAL, false)
+        da_hood_rblxm_REAL.__index = newcclosure(function(BEST_ON_TOP, IS_GARBAGE)
+            local esPedofilo = checkcaller()
+            if IS_GARBAGE == "WalkSpeed" and not esPedofilo then
+                return lista_de_victimas_de_drizzy.CurrentWS
+            end
+            return CP_DE_DRIZZY(BEST_ON_TOP, IS_GARBAGE)
+        end)
+        da_hood_rblxm_REAL.__newindex = newcclosure(function(kaias, ip, logger)
+            local unNeonazi = checkcaller()
+            if macroEnabled then
+                if ip == "WalkSpeed" and logger ~= 0 and not unNeonazi then
+                    return CP(kaias, ip, speedBoost)
+                end
+            end
+            return CP(kaias, ip, logger)
+        end)
+        setreadonly(da_hood_rblxm_REAL, true)
+        -- CFrame speed loop
+        local cframeMultiplier = -0.22
+        local cframeEnabled = false
+        -- Dragging functionality
+        local dragEnabled = false
+        local dragging = false
+        local dragInput = nil
+        local dragStart = nil
+        local startPos = nil
+        macroButton.InputBegan:Connect(function(input)
+           if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+              if not dragEnabled then return end
+              dragging = true
+              dragStart = input.Position
+              startPos = macroButton.Position
+           end
+        end)
+        macroButton.InputEnded:Connect(function(input)
+           if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+              if dragging then
+                 dragging = false
+              end
+           end
+        end)
+        UserInputService.InputChanged:Connect(function(input)
+           if dragging and dragEnabled and input.UserInputType == Enum.UserInputType.MouseMovement then
+              local delta = input.Position - dragStart
+              macroButton.Position = UDim2.new(
+                 startPos.X.Scale,
+                 startPos.X.Offset + delta.X,
+                 startPos.Y.Scale,
+                 startPos.Y.Offset + delta.Y
+              )
+           end
+        end)
+        -- Chat command for dragging
+        player.Chatted:Connect(function(message)
+           if message:lower() == "undrag" then
+              dragEnabled = false
+              local originalColor = macroButton.BackgroundColor3
+              macroButton.BackgroundColor3 = Color3.fromRGB(255, 100, 100)
+              task.wait(0.3)
+              macroButton.BackgroundColor3 = originalColor
+              print("Macro GUI dragging disabled!")
+           elseif message:lower() == "drag" then
+              dragEnabled = true
+              local originalColor = macroButton.BackgroundColor3
+              macroButton.BackgroundColor3 = Color3.fromRGB(100, 255, 100)
+              task.wait(0.3)
+              macroButton.BackgroundColor3 = originalColor
+              print("Macro GUI dragging enabled!")
+           end
+        end)
+        -- Macro Click Handler
+        macroButton.MouseButton1Click:Connect(function()
+            if dragging then return end -- Prevent clicking while dragging
+            macroEnabled = not macroEnabled
+            cframeEnabled = not cframeEnabled
+            if macroEnabled then
+                macroButton.Text = "⚡ ON"
+                macroButton.BackgroundColor3 = Color3.fromRGB(60, 180, 80)
+                macroButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+                macroStroke.Color = Color3.fromRGB(80, 220, 100)
+                -- Start speed boost with metatable hook + CFrame movement
+                macroConnection = RunService.Heartbeat:Connect(function()
+                    local character = player.Character
+                    if not character then return end
+                    local humanoid = character:FindFirstChild("Humanoid")
+                    local rootPart = character:FindFirstChild("HumanoidRootPart")
+                    if humanoid and rootPart then
+                        -- Force speed boost
+                        humanoid.WalkSpeed = speedBoost
+                        -- Additional CFrame speed boost
+                        if cframeEnabled then
+                            rootPart.CFrame = rootPart.CFrame + humanoid.MoveDirection * cframeMultiplier
+                        end
+                    end
+                end)
+                print("Macro enabled - Speed boosted to " .. speedBoost .. "!")
+            else
+                macroButton.Text = "⚡ MACRO"
+                macroButton.BackgroundColor3 = Color3.fromRGB(45, 45, 55)
+                macroButton.TextColor3 = Color3.fromRGB(200, 200, 200)
+                macroStroke.Color = Color3.fromRGB(100, 100, 110)
+                if macroConnection then
+                    macroConnection:Disconnect()
+                    macroConnection = nil
+                end
+                -- Reset to normal speed
+                local character = player.Character
+                if character then
+                    local humanoid = character:FindFirstChild("Humanoid")
+                    if humanoid then
+                        humanoid.WalkSpeed = 16
+                    end
+                end
+                print("Macro disabled - Speed reset!")
+            end
+        end)
+        print("Macro Script loaded!")
+        print("Type 'drag' in chat to drag GUI")
+        print("Type 'undrag' in chat to lock GUI in place")
+    else
+        Toggle4Switch.BackgroundColor3 = Color3.fromHex("#e80400")
+        Toggle4Knob.Position = UDim2.fromScale(0.05, 0)
+        -- LocalScript - Macro Speed Boost Script (Separated)
+        -- Place in executor
+        local Players = game:GetService("Players")
+        local RunService = game:GetService("RunService")
+        local UserInputService = game:GetService("UserInputService")
+        local player = Players.LocalPlayer
+        local playerGui = player:WaitForChild("PlayerGui")
+        -- Check if GUI already exists (toggle on/off)
+        local existingGui = playerGui:FindFirstChild("MacroGui")
+        if existingGui then
+           existingGui:Destroy()
+           print("Macro Script disabled!")
+           return
+        end
+        -- Create ScreenGui
+        local screenGui = Instance.new("ScreenGui")
+        screenGui.Name = "MacroGui"
+        screenGui.ResetOnSpawn = false
+        screenGui.Parent = playerGui
+        -- Create Macro Button
+        local macroButton = Instance.new("TextButton")
+        macroButton.Name = "MacroButton"
+        macroButton.Size = UDim2.new(0, 100, 0, 35)
+        macroButton.Position = UDim2.new(1, -120, 0, 78)
+        macroButton.BackgroundColor3 = Color3.fromRGB(45, 45, 55)
+        macroButton.Text = "⚡ MACRO"
+        macroButton.TextColor3 = Color3.fromRGB(200, 200, 200)
+        macroButton.TextSize = 12
+        macroButton.Font = Enum.Font.Gotham
+        macroButton.Active = true
+        macroButton.Parent = screenGui
+        local macroCorner = Instance.new("UICorner")
+        macroCorner.CornerRadius = UDim.new(0, 6)
+        macroCorner.Parent = macroButton
+        local macroStroke = Instance.new("UIStroke")
+        macroStroke.Color = Color3.fromRGB(100, 100, 110)
+        macroStroke.Thickness = 1
+        macroStroke.Parent = macroButton
+        -- Macro Variables
+        local macroEnabled = false
+        local macroConnection = nil
+        local speedBoost = 150
+        local da_hood_rblxm_REAL = getrawmetatable(game)
+        local CP = da_hood_rblxm_REAL.__newindex
+        local CP_DE_DRIZZY = da_hood_rblxm_REAL.__index
+        local lista_de_victimas_de_drizzy = getrenv()._G
+        -- Setup metatable hook for Da Hood speed bypass
+        setreadonly(da_hood_rblxm_REAL, false)
+        da_hood_rblxm_REAL.__index = newcclosure(function(BEST_ON_TOP, IS_GARBAGE)
+            local esPedofilo = checkcaller()
+            if IS_GARBAGE == "WalkSpeed" and not esPedofilo then
+                return lista_de_victimas_de_drizzy.CurrentWS
+            end
+            return CP_DE_DRIZZY(BEST_ON_TOP, IS_GARBAGE)
+        end)
+        da_hood_rblxm_REAL.__newindex = newcclosure(function(kaias, ip, logger)
+            local unNeonazi = checkcaller()
+            if macroEnabled then
+                if ip == "WalkSpeed" and logger ~= 0 and not unNeonazi then
+                    return CP(kaias, ip, speedBoost)
+                end
+            end
+            return CP(kaias, ip, logger)
+        end)
+        setreadonly(da_hood_rblxm_REAL, true)
+        -- CFrame speed loop
+        local cframeMultiplier = -0.22
+        local cframeEnabled = false
+        -- Dragging functionality
+        local dragEnabled = false
+        local dragging = false
+        local dragInput = nil
+        local dragStart = nil
+        local startPos = nil
+        macroButton.InputBegan:Connect(function(input)
+           if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+              if not dragEnabled then return end
+              dragging = true
+              dragStart = input.Position
+              startPos = macroButton.Position
+           end
+        end)
+        macroButton.InputEnded:Connect(function(input)
+           if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+              if dragging then
+                 dragging = false
+              end
+           end
+        end)
+        UserInputService.InputChanged:Connect(function(input)
+           if dragging and dragEnabled and input.UserInputType == Enum.UserInputType.MouseMovement then
+              local delta = input.Position - dragStart
+              macroButton.Position = UDim2.new(
+                 startPos.X.Scale,
+                 startPos.X.Offset + delta.X,
+                 startPos.Y.Scale,
+                 startPos.Y.Offset + delta.Y
+              )
+           end
+        end)
+        -- Chat command for dragging
+        player.Chatted:Connect(function(message)
+           if message:lower() == "undrag" then
+              dragEnabled = false
+              local originalColor = macroButton.BackgroundColor3
+              macroButton.BackgroundColor3 = Color3.fromRGB(255, 100, 100)
+              task.wait(0.3)
+              macroButton.BackgroundColor3 = originalColor
+              print("Macro GUI dragging disabled!")
+           elseif message:lower() == "drag" then
+              dragEnabled = true
+              local originalColor = macroButton.BackgroundColor3
+              macroButton.BackgroundColor3 = Color3.fromRGB(100, 255, 100)
+              task.wait(0.3)
+              macroButton.BackgroundColor3 = originalColor
+              print("Macro GUI dragging enabled!")
+           end
+        end)
+        -- Macro Click Handler
+        macroButton.MouseButton1Click:Connect(function()
+            if dragging then return end -- Prevent clicking while dragging
+            macroEnabled = not macroEnabled
+            cframeEnabled = not cframeEnabled
+            if macroEnabled then
+                macroButton.Text = "⚡ ON"
+                macroButton.BackgroundColor3 = Color3.fromRGB(60, 180, 80)
+                macroButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+                macroStroke.Color = Color3.fromRGB(80, 220, 100)
+                -- Start speed boost with metatable hook + CFrame movement
+                macroConnection = RunService.Heartbeat:Connect(function()
+                    local character = player.Character
+                    if not character then return end
+                    local humanoid = character:FindFirstChild("Humanoid")
+                    local rootPart = character:FindFirstChild("HumanoidRootPart")
+                    if humanoid and rootPart then
+                        -- Force speed boost
+                        humanoid.WalkSpeed = speedBoost
+                        -- Additional CFrame speed boost
+                        if cframeEnabled then
+                            rootPart.CFrame = rootPart.CFrame + humanoid.MoveDirection * cframeMultiplier
+                        end
+                    end
+                end)
+                print("Macro enabled - Speed boosted to " .. speedBoost .. "!")
+            else
+                macroButton.Text = "⚡ MACRO"
+                macroButton.BackgroundColor3 = Color3.fromRGB(45, 45, 55)
+                macroButton.TextColor3 = Color3.fromRGB(200, 200, 200)
+                macroStroke.Color = Color3.fromRGB(100, 100, 110)
+                if macroConnection then
+                    macroConnection:Disconnect()
+                    macroConnection = nil
+                end
+                -- Reset to normal speed
+                local character = player.Character
+                if character then
+                    local humanoid = character:FindFirstChild("Humanoid")
+                    if humanoid then
+                        humanoid.WalkSpeed = 16
+                    end
+                end
+                print("Macro disabled - Speed reset!")
+            end
+        end)
+        print("Macro Script loaded!")
+        print("Type 'drag' in chat to drag GUI")
+        print("Type 'undrag' in chat to lock GUI in place")
+    end
+end)
+
+-- TextBox5
+local TextBox5 = Instance.new("TextBox")
+TextBox5.Name = "TextBox5"
+TextBox5.Size = UDim2.fromScale(0.2, 0.09)
+TextBox5.Position = UDim2.fromScale(0.4, 0.48)
+TextBox5.BackgroundColor3 = Color3.fromHex("#000000")
+TextBox5.BackgroundTransparency = 0
+TextBox5.BorderSizePixel = 0
+TextBox5.Parent = mainContainer
+
+TextBox5.Text = "enable lock"
+TextBox5.TextColor3 = Color3.fromHex("#f10000")
+TextBox5.TextSize = 13
+TextBox5.TextScaled = true -- Mobile Optimization
+TextBox5.Font = Enum.Font.Highway
+TextBox5.ClearTextOnFocus = false
+TextBox5.PlaceholderText = "enable lock"
+-- Toggle6 (Toggle)
+local Toggle6 = Instance.new("TextButton")
+Toggle6.Name = "Toggle6"
+Toggle6.Size = UDim2.fromScale(0.24, 0.16)
+Toggle6.Position = UDim2.fromScale(0.38, 0.56)
+Toggle6.BackgroundTransparency = 1
+Toggle6.BorderSizePixel = 0
+Toggle6.Text = ""
+Toggle6.AutoButtonColor = false
+Toggle6.Parent = mainContainer
+
+-- Switch background
+local Toggle6Switch = Instance.new("Frame")
+Toggle6Switch.Name = "SwitchBg"
+Toggle6Switch.Size = UDim2.fromScale(0.8, 0.6)
+Toggle6Switch.Position = UDim2.fromScale(0.1, 0.2)
+Toggle6Switch.BackgroundColor3 = Color3.fromHex("#dd0000")
+Toggle6Switch.BorderSizePixel = 0
+Toggle6Switch.Parent = Toggle6
+
+local Toggle6SwitchCorner = Instance.new("UICorner")
+Toggle6SwitchCorner.CornerRadius = UDim.new(1, 0)
+Toggle6SwitchCorner.Parent = Toggle6Switch
+
+-- Switch knob
+local Toggle6Knob = Instance.new("Frame")
+Toggle6Knob.Name = "Knob"
+Toggle6Knob.Size = UDim2.fromScale(0.4, 1)
+Toggle6Knob.Position = UDim2.fromScale(0.05, 0)
+Toggle6Knob.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Toggle6Knob.BorderSizePixel = 0
+Toggle6Knob.Parent = Toggle6Switch
+
+local Toggle6KnobCorner = Instance.new("UICorner")
+Toggle6KnobCorner.CornerRadius = UDim.new(1, 0)
+Toggle6KnobCorner.Parent = Toggle6Knob
+
+-- Toggle state and logic
+local Toggle6State = false
+
+Toggle6.MouseButton1Click:Connect(function()
+    Toggle6State = not Toggle6State
+
+    if Toggle6State then
+        Toggle6Switch.BackgroundColor3 = Color3.fromHex("#10B981")
+        Toggle6Knob.Position = UDim2.fromScale(0.55, 0)
+        -- LocalScript - Lock-On Aimbot Script (Separated)
+        -- Place in executor
+        local Players = game:GetService("Players")
+        local RunService = game:GetService("RunService")
+        local UserInputService = game:GetService("UserInputService")
+        local player = Players.LocalPlayer
+        local camera = workspace.CurrentCamera
+        local playerGui = player:WaitForChild("PlayerGui")
+        -- Check if GUI already exists (toggle on/off)
+        local existingGui = playerGui:FindFirstChild("LockOnGui")
+        if existingGui then
+           existingGui:Destroy()
+           print("Lock-On Script disabled!")
+           return
+        end
+        -- Variables
+        local lockedCharacter = nil
+        local lockedPlayer = nil
+        local isLocked = false
+        -- Create ScreenGui
+        local screenGui = Instance.new("ScreenGui")
+        screenGui.Name = "LockOnGui"
+        screenGui.ResetOnSpawn = false
+        screenGui.Parent = playerGui
+        -- Create Lock Button
+        local lockButton = Instance.new("TextButton")
+        lockButton.Name = "LockButton"
+        lockButton.Size = UDim2.new(0, 100, 0, 50)
+        lockButton.Position = UDim2.new(1, -120, 0, 20)
+        lockButton.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+        lockButton.Text = "LOCK"
+        lockButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+        lockButton.TextSize = 16
+        lockButton.Font = Enum.Font.Gotham
+        lockButton.Active = true
+        lockButton.Draggable = false
+        lockButton.Parent = screenGui
+        -- Button styling
+        local buttonCorner = Instance.new("UICorner")
+        buttonCorner.CornerRadius = UDim.new(0, 8)
+        buttonCorner.Parent = lockButton
+        local buttonStroke = Instance.new("UIStroke")
+        buttonStroke.Color = Color3.fromRGB(255, 255, 255)
+        buttonStroke.Thickness = 2
+        buttonStroke.Parent = lockButton
+        -- Dragging functionality
+        local dragEnabled = false
+        local dragging = false
+        local dragInput = nil
+        local dragStart = nil
+        local startPos = nil
+        lockButton.InputBegan:Connect(function(input)
+           if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+              if not dragEnabled then return end
+              dragging = true
+              dragStart = input.Position
+              startPos = lockButton.Position
+           end
+        end)
+        lockButton.InputEnded:Connect(function(input)
+           if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+              if dragging then
+                 dragging = false
+              end
+           end
+        end)
+        UserInputService.InputChanged:Connect(function(input)
+           if dragging and dragEnabled and input.UserInputType == Enum.UserInputType.MouseMovement then
+              local delta = input.Position - dragStart
+              lockButton.Position = UDim2.new(
+                 startPos.X.Scale,
+                 startPos.X.Offset + delta.X,
+                 startPos.Y.Scale,
+                 startPos.Y.Offset + delta.Y
+              )
+           end
+        end)
+        -- Chat command for dragging
+        player.Chatted:Connect(function(message)
+           if message:lower() == "undrag" then
+              dragEnabled = false
+              local originalColor = lockButton.BackgroundColor3
+              lockButton.BackgroundColor3 = Color3.fromRGB(255, 100, 100)
+              task.wait(0.3)
+              lockButton.BackgroundColor3 = originalColor
+              print("Lock GUI dragging disabled!")
+           elseif message:lower() == "drag" then
+              dragEnabled = true
+              local originalColor = lockButton.BackgroundColor3
+              lockButton.BackgroundColor3 = Color3.fromRGB(100, 255, 100)
+              task.wait(0.3)
+              lockButton.BackgroundColor3 = originalColor
+              print("Lock GUI dragging enabled!")
+           end
+        end)
+        -- Function to get closest character to screen center
+        local function getClosestCharacterToCenter()
+           local centerX = camera.ViewportSize.X / 2
+           local centerY = camera.ViewportSize.Y / 2
+           local closestDistance = math.huge
+           local closestCharacter = nil
+           local closestPlayer = nil
+           for _, targetPlayer in pairs(Players:GetPlayers()) do
+              if targetPlayer ~= player and targetPlayer.Character then
+                 local character = targetPlayer.Character
+                 local humanoid = character:FindFirstChild("Humanoid")
+                 local rootPart = character:FindFirstChild("HumanoidRootPart")
+                 if humanoid and humanoid.Health > 0 and rootPart then
+                    local screenPos, onScreen = camera:WorldToScreenPoint(rootPart.Position)
+                    if onScreen and screenPos.Z > 0 then
+                       local distance = math.sqrt((screenPos.X - centerX)^2 + (screenPos.Y - centerY)^2)
+                       if distance < closestDistance then
+                          closestDistance = distance
+                          closestCharacter = character
+                          closestPlayer = targetPlayer
+                       end
+                    end
+                 end
+              end
+           end
+           return closestCharacter, closestPlayer
+        end
+        -- Function to check if locked character is dead/knocked
+        local function isCharacterDead(character)
+           if not character or not character.Parent then
+              return true
+           end
+           local humanoid = character:FindFirstChild("Humanoid")
+           if not humanoid or humanoid.Health <= 0 then
+              return true
+           end
+           return false
+        end
+        -- Function to create ESP on character
+        local espHighlight = nil
+        local espGui = nil
+        local function createESP(character, targetPlayer)
+           removeESP()
+           local rootPart = character:FindFirstChild("HumanoidRootPart")
+           if not rootPart then 
+              return 
+           end
+           -- Create Highlight with green glow outline
+           espHighlight = Instance.new("Highlight")
+           espHighlight.Name = "LockESP"
+           espHighlight.Adornee = character
+           espHighlight.FillColor = Color3.fromRGB(0, 255, 0)
+           espHighlight.FillTransparency = 0.8
+           espHighlight.OutlineColor = Color3.fromRGB(0, 255, 0)
+           espHighlight.OutlineTransparency = 0.3
+           espHighlight.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+           espHighlight.Parent = screenGui
+           -- Create BillboardGui for username
+           espGui = Instance.new("BillboardGui")
+           espGui.Name = "LockESPGui"
+           espGui.Adornee = rootPart
+           espGui.Size = UDim2.new(0, 200, 0, 50)
+           espGui.StudsOffset = Vector3.new(0, 3, 0)
+           espGui.AlwaysOnTop = true
+           espGui.Parent = screenGui
+           -- Create username label
+           local espLabel = Instance.new("TextLabel")
+           espLabel.Size = UDim2.new(1, 0, 1, 0)
+           espLabel.BackgroundTransparency = 1
+           espLabel.Text = targetPlayer.Name
+           espLabel.TextColor3 = Color3.fromRGB(0, 255, 0)
+           espLabel.TextSize = 18
+           espLabel.Font = Enum.Font.Gotham
+           espLabel.TextStrokeTransparency = 0
+           espLabel.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+           espLabel.Parent = espGui
+        end
+        -- Function to remove ESP
+        function removeESP()
+           if espHighlight then
+              espHighlight:Destroy()
+              espHighlight = nil
+           end
+           if espGui then
+              espGui:Destroy()
+              espGui = nil
+           end
+        end
+        -- Function to unlock
+        local function unlock()
+           isLocked = false
+           lockedCharacter = nil
+           lockedPlayer = nil
+           lockButton.Text = "LOCK"
+           lockButton.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+           buttonStroke.Color = Color3.fromRGB(255, 255, 255)
+           removeESP()
+        end
+        -- Button click handler
+        lockButton.MouseButton1Click:Connect(function()
+           if dragging then return end -- Prevent clicking while dragging
+           if not isLocked then
+              local targetChar, targetPlayer = getClosestCharacterToCenter()
+              if targetChar and targetPlayer then
+                 isLocked = true
+                 lockedCharacter = targetChar
+                 lockedPlayer = targetPlayer
+                 lockButton.Text = "UNLOCK"
+                 lockButton.BackgroundColor3 = Color3.fromRGB(0, 150, 0)
+                 buttonStroke.Color = Color3.fromRGB(0, 255, 0)
+                 createESP(targetChar, targetPlayer)
+                 print("Locked onto: " .. targetPlayer.Name)
+              else
+                 print("No valid target found")
+              end
+           else
+              print("Unlocked")
+              unlock()
+           end
+        end)
+        -- Main camera lock loop
+        RunService.RenderStepped:Connect(function()
+           if isLocked and lockedCharacter and lockedPlayer then
+              if isCharacterDead(lockedCharacter) then
+                 print("Target died, unlocking")
+                 unlock()
+                 return
+              end
+              local rootPart = lockedCharacter:FindFirstChild("HumanoidRootPart")
+              local head = lockedCharacter:FindFirstChild("Head")
+              local myCharacter = player.Character
+              local myRootPart = myCharacter and myCharacter:FindFirstChild("HumanoidRootPart")
+              local myHumanoid = myCharacter and myCharacter:FindFirstChild("Humanoid")
+              if rootPart and head and myRootPart and myHumanoid then
+                 local targetPos = rootPart.Position
+                 local myPos = myRootPart.Position
+                 local lookAtPos = Vector3.new(targetPos.X, myPos.Y, targetPos.Z)
+                 local newCFrame = CFrame.new(myPos, lookAtPos)
+                 myRootPart.CFrame = CFrame.new(myPos) * (newCFrame - newCFrame.Position)
+                 myHumanoid.AutoRotate = false
+                 local offset = Vector3.new(0, 2, 6)
+                 local cameraCFrame = CFrame.new(myPos + offset)
+                 camera.CFrame = CFrame.new(cameraCFrame.Position, head.Position)
+              else
+                 unlock()
+              end
+           else
+              local myCharacter = player.Character
+              if myCharacter then
+                 local myHumanoid = myCharacter:FindFirstChild("Humanoid")
+                 if myHumanoid then
+                    myHumanoid.AutoRotate = true
+                 end
+              end
+           end
+        end)
+        print("Lock-On Script loaded!")
+        print("Type 'drag' in chat to drag GUI")
+        print("Type 'undrag' in chat to lock GUI in place")
+    else
+        Toggle6Switch.BackgroundColor3 = Color3.fromHex("#dd0000")
+        Toggle6Knob.Position = UDim2.fromScale(0.05, 0)
+        -- LocalScript - Lock-On Aimbot Script (Separated)
+        -- Place in executor
+        local Players = game:GetService("Players")
+        local RunService = game:GetService("RunService")
+        local UserInputService = game:GetService("UserInputService")
+        local player = Players.LocalPlayer
+        local camera = workspace.CurrentCamera
+        local playerGui = player:WaitForChild("PlayerGui")
+        -- Check if GUI already exists (toggle on/off)
+        local existingGui = playerGui:FindFirstChild("LockOnGui")
+        if existingGui then
+           existingGui:Destroy()
+           print("Lock-On Script disabled!")
+           return
+        end
+        -- Variables
+        local lockedCharacter = nil
+        local lockedPlayer = nil
+        local isLocked = false
+        -- Create ScreenGui
+        local screenGui = Instance.new("ScreenGui")
+        screenGui.Name = "LockOnGui"
+        screenGui.ResetOnSpawn = false
+        screenGui.Parent = playerGui
+        -- Create Lock Button
+        local lockButton = Instance.new("TextButton")
+        lockButton.Name = "LockButton"
+        lockButton.Size = UDim2.new(0, 100, 0, 50)
+        lockButton.Position = UDim2.new(1, -120, 0, 20)
+        lockButton.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+        lockButton.Text = "LOCK"
+        lockButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+        lockButton.TextSize = 16
+        lockButton.Font = Enum.Font.Gotham
+        lockButton.Active = true
+        lockButton.Draggable = false
+        lockButton.Parent = screenGui
+        -- Button styling
+        local buttonCorner = Instance.new("UICorner")
+        buttonCorner.CornerRadius = UDim.new(0, 8)
+        buttonCorner.Parent = lockButton
+        local buttonStroke = Instance.new("UIStroke")
+        buttonStroke.Color = Color3.fromRGB(255, 255, 255)
+        buttonStroke.Thickness = 2
+        buttonStroke.Parent = lockButton
+        -- Dragging functionality
+        local dragEnabled = false
+        local dragging = false
+        local dragInput = nil
+        local dragStart = nil
+        local startPos = nil
+        lockButton.InputBegan:Connect(function(input)
+           if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+              if not dragEnabled then return end
+              dragging = true
+              dragStart = input.Position
+              startPos = lockButton.Position
+           end
+        end)
+        lockButton.InputEnded:Connect(function(input)
+           if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+              if dragging then
+                 dragging = false
+              end
+           end
+        end)
+        UserInputService.InputChanged:Connect(function(input)
+           if dragging and dragEnabled and input.UserInputType == Enum.UserInputType.MouseMovement then
+              local delta = input.Position - dragStart
+              lockButton.Position = UDim2.new(
+                 startPos.X.Scale,
+                 startPos.X.Offset + delta.X,
+                 startPos.Y.Scale,
+                 startPos.Y.Offset + delta.Y
+              )
+           end
+        end)
+        -- Chat command for dragging
+        player.Chatted:Connect(function(message)
+           if message:lower() == "undrag" then
+              dragEnabled = false
+              local originalColor = lockButton.BackgroundColor3
+              lockButton.BackgroundColor3 = Color3.fromRGB(255, 100, 100)
+              task.wait(0.3)
+              lockButton.BackgroundColor3 = originalColor
+              print("Lock GUI dragging disabled!")
+           elseif message:lower() == "drag" then
+              dragEnabled = true
+              local originalColor = lockButton.BackgroundColor3
+              lockButton.BackgroundColor3 = Color3.fromRGB(100, 255, 100)
+              task.wait(0.3)
+              lockButton.BackgroundColor3 = originalColor
+              print("Lock GUI dragging enabled!")
+           end
+        end)
+        -- Function to get closest character to screen center
+        local function getClosestCharacterToCenter()
+           local centerX = camera.ViewportSize.X / 2
+           local centerY = camera.ViewportSize.Y / 2
+           local closestDistance = math.huge
+           local closestCharacter = nil
+           local closestPlayer = nil
+           for _, targetPlayer in pairs(Players:GetPlayers()) do
+              if targetPlayer ~= player and targetPlayer.Character then
+                 local character = targetPlayer.Character
+                 local humanoid = character:FindFirstChild("Humanoid")
+                 local rootPart = character:FindFirstChild("HumanoidRootPart")
+                 if humanoid and humanoid.Health > 0 and rootPart then
+                    local screenPos, onScreen = camera:WorldToScreenPoint(rootPart.Position)
+                    if onScreen and screenPos.Z > 0 then
+                       local distance = math.sqrt((screenPos.X - centerX)^2 + (screenPos.Y - centerY)^2)
+                       if distance < closestDistance then
+                          closestDistance = distance
+                          closestCharacter = character
+                          closestPlayer = targetPlayer
+                       end
+                    end
+                 end
+              end
+           end
+           return closestCharacter, closestPlayer
+        end
+        -- Function to check if locked character is dead/knocked
+        local function isCharacterDead(character)
+           if not character or not character.Parent then
+              return true
+           end
+           local humanoid = character:FindFirstChild("Humanoid")
+           if not humanoid or humanoid.Health <= 0 then
+              return true
+           end
+           return false
+        end
+        -- Function to create ESP on character
+        local espHighlight = nil
+        local espGui = nil
+        local function createESP(character, targetPlayer)
+           removeESP()
+           local rootPart = character:FindFirstChild("HumanoidRootPart")
+           if not rootPart then 
+              return 
+           end
+           -- Create Highlight with green glow outline
+           espHighlight = Instance.new("Highlight")
+           espHighlight.Name = "LockESP"
+           espHighlight.Adornee = character
+           espHighlight.FillColor = Color3.fromRGB(0, 255, 0)
+           espHighlight.FillTransparency = 0.8
+           espHighlight.OutlineColor = Color3.fromRGB(0, 255, 0)
+           espHighlight.OutlineTransparency = 0.3
+           espHighlight.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+           espHighlight.Parent = screenGui
+           -- Create BillboardGui for username
+           espGui = Instance.new("BillboardGui")
+           espGui.Name = "LockESPGui"
+           espGui.Adornee = rootPart
+           espGui.Size = UDim2.new(0, 200, 0, 50)
+           espGui.StudsOffset = Vector3.new(0, 3, 0)
+           espGui.AlwaysOnTop = true
+           espGui.Parent = screenGui
+           -- Create username label
+           local espLabel = Instance.new("TextLabel")
+           espLabel.Size = UDim2.new(1, 0, 1, 0)
+           espLabel.BackgroundTransparency = 1
+           espLabel.Text = targetPlayer.Name
+           espLabel.TextColor3 = Color3.fromRGB(0, 255, 0)
+           espLabel.TextSize = 18
+           espLabel.Font = Enum.Font.Gotham
+           espLabel.TextStrokeTransparency = 0
+           espLabel.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+           espLabel.Parent = espGui
+        end
+        -- Function to remove ESP
+        function removeESP()
+           if espHighlight then
+              espHighlight:Destroy()
+              espHighlight = nil
+           end
+           if espGui then
+              espGui:Destroy()
+              espGui = nil
+           end
+        end
+        -- Function to unlock
+        local function unlock()
+           isLocked = false
+           lockedCharacter = nil
+           lockedPlayer = nil
+           lockButton.Text = "LOCK"
+           lockButton.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+           buttonStroke.Color = Color3.fromRGB(255, 255, 255)
+           removeESP()
+        end
+        -- Button click handler
+        lockButton.MouseButton1Click:Connect(function()
+           if dragging then return end -- Prevent clicking while dragging
+           if not isLocked then
+              local targetChar, targetPlayer = getClosestCharacterToCenter()
+              if targetChar and targetPlayer then
+                 isLocked = true
+                 lockedCharacter = targetChar
+                 lockedPlayer = targetPlayer
+                 lockButton.Text = "UNLOCK"
+                 lockButton.BackgroundColor3 = Color3.fromRGB(0, 150, 0)
+                 buttonStroke.Color = Color3.fromRGB(0, 255, 0)
+                 createESP(targetChar, targetPlayer)
+                 print("Locked onto: " .. targetPlayer.Name)
+              else
+                 print("No valid target found")
+              end
+           else
+              print("Unlocked")
+              unlock()
+           end
+        end)
+        -- Main camera lock loop
+        RunService.RenderStepped:Connect(function()
+           if isLocked and lockedCharacter and lockedPlayer then
+              if isCharacterDead(lockedCharacter) then
+                 print("Target died, unlocking")
+                 unlock()
+                 return
+              end
+              local rootPart = lockedCharacter:FindFirstChild("HumanoidRootPart")
+              local head = lockedCharacter:FindFirstChild("Head")
+              local myCharacter = player.Character
+              local myRootPart = myCharacter and myCharacter:FindFirstChild("HumanoidRootPart")
+              local myHumanoid = myCharacter and myCharacter:FindFirstChild("Humanoid")
+              if rootPart and head and myRootPart and myHumanoid then
+                 local targetPos = rootPart.Position
+                 local myPos = myRootPart.Position
+                 local lookAtPos = Vector3.new(targetPos.X, myPos.Y, targetPos.Z)
+                 local newCFrame = CFrame.new(myPos, lookAtPos)
+                 myRootPart.CFrame = CFrame.new(myPos) * (newCFrame - newCFrame.Position)
+                 myHumanoid.AutoRotate = false
+                 local offset = Vector3.new(0, 2, 6)
+                 local cameraCFrame = CFrame.new(myPos + offset)
+                 camera.CFrame = CFrame.new(cameraCFrame.Position, head.Position)
+              else
+                 unlock()
+              end
+           else
+              local myCharacter = player.Character
+              if myCharacter then
+                 local myHumanoid = myCharacter:FindFirstChild("Humanoid")
+                 if myHumanoid then
+                    myHumanoid.AutoRotate = true
+                 end
+              end
+           end
+        end)
+        print("Lock-On Script loaded!")
+        print("Type 'drag' in chat to drag GUI")
+        print("Type 'undrag' in chat to lock GUI in place")
+    end
+end)
+
+-- TextButton7
+local TextButton7 = Instance.new("TextButton")
+TextButton7.Name = "TextButton7"
+TextButton7.Size = UDim2.fromScale(0.05, 0.05)
+TextButton7.Position = UDim2.fromScale(0.57, 0.21)
+TextButton7.BackgroundColor3 = Color3.fromHex("#000000")
+TextButton7.BackgroundTransparency = 0
+TextButton7.BorderSizePixel = 0
+TextButton7.Parent = mainContainer
+
+TextButton7.AutoButtonColor = true
+TextButton7.Text = "-"
+TextButton7.TextColor3 = Color3.fromHex("#e20000")
+TextButton7.TextSize = 18
+TextButton7.TextScaled = true -- Mobile Optimization
+TextButton7.Font = Enum.Font.FredokaOne
+
+TextButton7.MouseButton1Click:Connect(function()
+    mainContainer.Visible = false
+    screenGui.MinimizeIcon.Visible = true
+end)
+
+-- Draggable Logic for MainContainer
+local UserInputService = game:GetService("UserInputService")
+
+local dragging
+local dragInput
+local dragStart
+local startPos
+
+local function update(input)
+    local delta = input.Position - dragStart
+    local viewport = screenGui.AbsoluteSize
+    mainContainer.Position = UDim2.fromScale(
+        startPos.X.Scale + (delta.X / viewport.X),
+        startPos.Y.Scale + (delta.Y / viewport.Y)
+    )
+end
+
+local function onInputBegan(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+        dragging = true
+        dragStart = input.Position
+        startPos = mainContainer.Position
+        
+        local connection
+        connection = input.Changed:Connect(function()
+            if input.UserInputState == Enum.UserInputState.End then
+                dragging = false
+                if connection then connection:Disconnect() end
+            end
+        end)
+    end
+end
+
+-- Attach dragging to all visible elements so you can drag by holding any part of the GUI
+-- but not the empty screen space (since mainContainer is full-screen and transparent)
+local function applyDraggable(obj)
+    if obj:IsA("GuiObject") then
+        obj.InputBegan:Connect(onInputBegan)
+        obj.InputChanged:Connect(function(input)
+            if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+                dragInput = input
+            end
+        end)
+    end
+end
+
+for _, child in ipairs(mainContainer:GetChildren()) do
+    applyDraggable(child)
+end
+
+-- Also attach to minimize icon if it exists
+if screenGui:FindFirstChild("MinimizeIcon") then
+    applyDraggable(screenGui.MinimizeIcon)
+end
+
+UserInputService.InputChanged:Connect(function(input)
+    if input == dragInput and dragging then
+        update(input)
+    end
+end)
